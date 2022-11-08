@@ -1,0 +1,44 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+ 	<meta charset="UTF-8"> 
+	 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	 <meta name="viewport" content=
+		 "width=device-width, initial-scale=1.0">
+ 	<title>Transparent SignUp Form with Blur Background</title> 
+ 	<link 
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&dis play=swap" rel="stylesheet"> 
+ 	<link href="register-css.css" rel="stylesheet">
+	 <link rel="stylesheet" href=
+	 "https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+			 integrity=
+	 "sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
+			 crossorigin="anonymous"> 
+	 <script src="captcha.js"></script>
+</head> 
+<body onload="generate()"> 
+ 	<div class="contact-form"> 
+ 	 	<h2>REGISTER</h2> 
+		    <form onsubmit="return false;" id="myForm">
+		    <p>USERNAME</p><input placeholder="Enter Username" type="text" name='uname'>
+			<p>EMAIL</p><input placeholder="Enter Email Id" type="text" name='email'>
+ 	 	 	<p>PASSWORD</p><input placeholder="Enter Password" type="password" name='pwd'> 
+ 			<p>CONFIRM PASSWORD</p><input placeholder="Enter Password Again" type="password" name='pwd'>
+			 <div id="user-input" class="inline">
+				<input type="text" id="submit"
+					placeholder="Enter Captcha" />
+			</div>
+			<div class="inline" onclick="generate()">
+				<i class="fas fa-sync"></i>
+			</div>
+			<div id="image" class="inline" selectable="False">
+			</div>
+            <input type="submit" value="REGISTER" id="btn" onclick=printmsg()>
+			<center><p id="key"></p></center>
+			<center><div class=newuser><p>Already have an account?
+			<a href="login.html">LOGIN</a> </center></p></div>
+			</form>
+			
+ 	</div> 
+</body> 
+</html> 
