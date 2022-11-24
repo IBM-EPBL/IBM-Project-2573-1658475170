@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CKD Prediction Form</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <style>
+      html, body {
+      min-height: 100%;
+      }
+      body, div, form, input, select, p { 
+      padding: 0;
+      margin: 0;
+      outline: none;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      color: black
+      }
+      h1 {
+      margin: 0;
+      font-weight: 400;
+      font-family: sans-serif;
+      font-weight: bolder;
+
+      }
+      h3 {
+      margin: 12px 0;
+      color: black;
+      }
+      .main-block {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #fff;  	
+      background-image: url("static/ckd.jpg");  	
+      height: 100%; 
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;  
+    }
+      form {
+      width: 100%;
+      padding: 20px;
+      }
+      fieldset {
+      border: none;
+      border-top: 1px solid black;
+      }
+      .account-details, .personal-details {
+      display: block;
+      flex-wrap: wrap;
+      /*justify-content: space-between;*/
+      }
+      .account-details >div, .personal-details >div >div {
+        
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      }
+      .account-details >div, .personal-details >div, input, label {
+      width: 100%;
+      }
+      label {
+      padding: 0 5px;
+      text-align: right;
+      vertical-align: middle;
+      }
+      input {
+      padding: 5px;
+      vertical-align: middle;
+      }
+      .checkbox {
+      margin-bottom: 10px;
+      }
+      select, .children, .gender, .bdate-block {
+      width: calc(100% + 26px);
+      padding: 5px 0;
+      }
+      select {
+      background: transparent;
+      }
+      .gender input {
+      width: auto;
+      } 
+      .gender label {
+      padding: 0 5px 0 0;
+      } 
+      .bdate-block {
+      display: flex;
+      justify-content: space-between;
+      }
+      .birthdate select.day {
+      width: 35px;
+      }
+      .birthdate select.mounth {
+      width: calc(100% - 94px);
+      }
+      .birthdate input {
+      width: 38px;
+      vertical-align: unset;
+      }
+      .checkbox input, .children input {
+      width: auto;
+      margin: -2px 10px 0 0;
+      }
+      button {
+      width: 100%;
+      padding: 10px 0;
+      margin: 10px auto;
+      border-radius: 5px; 
+      border: none;
+      background: red; 
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+      }
+      button:hover {
+      background: red;
+      opacity: 0.4;
+      }
+      @media (min-width: 568px) {
+      .account-details >div, .personal-details >div {
+      width: 50%;
+      }
+      label {
+      width: 40%;
+      }
+      input {
+      width: 60%;
+      }
+      select, .children, .gender, .bdate-block {
+      width: calc(60% + 16px);
+      }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-block">
+    <form method="POST", action="{{url_for('home')}}">
+      <h1 align="center">ENTER YOUR DETAILS</h1>
+      <fieldset>
+        <legend>
+          <h3>Personal Details</h3>
+        </legend>
+        <div  class="account-details">
+          <div><label><b>Name</b></label><input type="text" name="a" required></div>
+          
+          <div>
+            &nbsp &nbsp <label><b>Gender</b></label>
+            <div class="gender">
+              <input type="radio" value="none" id="male" name="b" required/>
+              <label for="male" class="radio">Male</label>
+              <input type="radio" value="none" id="female" name="b" required/>
+              <label for="female" class="radio">Female</label>
+            </div>
+          </div>
+          
+          <div><label><b>Age</b></label><input type="number" name="c" required min="3" max="100"></div>
+         
+        </div>
+      </fieldset> 
+      <fieldset>
+        <legend>
+          <h3>Medical Details</h3>
+        </legend>
+        <div  class="personal-details">
+          <div>
+            <div><label><b>Blood Pressure</b></label><input type="number" name="d" required></div>
+            <div><label><b>Specific Gravity</b></label><input type="number" name="e" required step=".01"></div>
+            <div><label><b>Albumin</b></label><input type="number" name="f"></div>
+            <div><label><b>Sugar</b></label><input type="number" name="g" required></div>
+            <div>
+              &nbsp &nbsp <label><b>How about RBC's?</b></label>
+              <div class="gender">
+                <input type="radio" value="1" id="normal" name="h" required/>
+                <label for="normal" class="radio">Normal</label>
+                <input type="radio" value="0" id="abnormal" name="h" required/>
+                <label for="abnormal" class="radio">Abnormal</label>
+              </div>
+            </div>
+            <div>
+              &nbsp &nbsp <label><b>Pus Cell</b></label>
+              <div class="gender">
+                <input type="radio" value="1" id="normal" name="i" required/>
+                <label for="normal" class="radio">Normal</label>
+                <input type="radio" value="0" id="abnormal" name="i" required/>
+                <label for="abnormal" class="radio">Abnormal</label>
+              </div>
+            </div>
+            <div>
+              &nbsp &nbsp <label><b>Any clumps in your Puss cells?</b></label>
+              <div class="gender">
+                <input type="radio" value="1" id="present" name="j" required/>
+                <label for="present" class="radio">Present</label>
+                <input type="radio" value="0" id="notpresent" name="j" required/>
+                <label for="notpresent" class="radio">Not Present</label>
+              </div>
+            </div>
+            <div>
+              &nbsp &nbsp <label><b>Bacteria?</b></label>
+              <div class="gender">
+                <input type="radio" value="1" id="present" name="k" required/>
+                <label for="present" class="radio">Present</label>
+                <input type="radio" value="0" id="notpresent" name="k" required/>
+                <label for="notpresent" class="radio">Not Present</label>
+              </div>
+            </div>
+            <div><label><b>Blood Glucose Random</b></label><input type="number" name="l" required></div> 
+            <div><label><b>Blood Urea</b></label><input type="number" name="m" required></div>
+            <div><label><b>Serum Creatinine</b></label><input type="number" name="n" required step=".01"></div>
+            <div><label><b>Sodium</b></label><input type="number" name="o" required></div>
+            <div><label><b>Potassium</b></label><input type="number" name="p" required step=".01"></div>
+            <div><label><b>Hemoglobin</b></label><input type="number" name="q" required step=".01"></div>
+            <div><label><b>Packed Cell Volume</b></label><input type="number" name="r" required></div>
+            <div><label><b>WBC Count</b></label><input type="number" name="s" required></div>
+            <div><label><b>RBC Count</b></label><input type="number" name="t" required step=".01"></div>
+            <div>
+              &nbsp &nbsp <label><b>Do you have hypertension</b></label>
+              <div class="gender">
+                <input type="radio" value="1" id="yes" name="u" required/>
+                <label for="yes" class="radio">Yes</label>
+                <input type="radio" value="0" id="no" name="u" required/>
+                <label for="no" class="radio">No</label>
+              </div>
+            </div>
+            <div>
+              &nbsp &nbsp <label><b>Do you have Diabetes Mellitus?</b></label>
+              <div class="gender">
+                <input type="radio" value="1" id="yes" name="v" required/>
+                <label for="yes" class="radio">Yes</label>
+                <input type="radio" value="0" id="no" name="v" required/>
+                <label for="no" class="radio">No</label>
+              </div>
+            </div>
+            <div>
+              &nbsp &nbsp <label><b>Do you have CAD?</b></label>
+              <div class="gender">
+                <input type="radio" value="1" id="yes" name="w" required/>
+                <label for="yes" class="radio">Yes</label>
+                <input type="radio" value="0" id="no" name="w" required/>
+                <label for="no" class="radio">No</label>
+              </div>
+            </div>
+            <div>
+              &nbsp &nbsp <label><b>How's your apetite?</b></label>
+              <div class="gender">
+                <input type="radio" value="0" id="good" name="x" required/>
+                <label for="good" class="radio">Good</label>
+                <input type="radio" value="1" id="poor" name="x" required/>
+                <label for="poor" class="radio">Poor</label>
+              </div>
+            </div>
+            <div>
+              &nbsp &nbsp <label><b>Do you have Pedal Edema?</b></label>
+              <div class="gender">
+                <input type="radio" value="1" id="yes" name="y" required/>
+                <label for="yes" class="radio">Yes</label>
+                <input type="radio" value="0" id="no" name="y" required/>
+                <label for="no" class="radio">No</label>
+              </div>
+            </div>
+            <div>
+              &nbsp &nbsp <label><b>Do you have Anaemia?</b></label>
+              <div class="gender">
+                <input type="radio" value="1" id="yes" name="z" required/>
+                <label for="anaemia" class="radio">Yes</label>
+                <input type="radio" value="0" id="no" name="z" required/>
+                <label for="anaemia" class="radio">No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <input type="submit" , value='predict'>
+    </form>
+    </div> 
+  </body>
+</html>
